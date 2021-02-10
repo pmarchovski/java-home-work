@@ -1,0 +1,15 @@
+try {
+
+					String sql = ("select name from teamleaders");
+					pst = conn.prepareStatement(sql);
+					rs = pst.executeQuery(sql);
+					while (rs.next()) {
+						String name = rs.getString("name");
+						comboTeamLeader.addItem(name);
+					}
+					conn.close();
+				}
+
+				catch (SQLException ex) {
+
+				}
