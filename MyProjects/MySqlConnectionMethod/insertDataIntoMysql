@@ -1,0 +1,25 @@
+try {
+
+					pst = conn.prepareStatement(
+							"insert into operators(Name,Date,Teamleader,Operation,Phone)values(?,?,?,?,?)");
+					pst.setString(1, name);
+					pst.setDate(2, new java.sql.Date(date.getTime()));
+					pst.setObject(3, teamLeader);
+					pst.setObject(4, operation);
+					pst.setString(5, phoneNumber);
+
+					pst.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Record added!");
+
+					table_load();
+
+					txtName.setText("");
+					txtDate.setText("");
+
+					txtPhone.setText("");
+					comboTeamLeader.setSelectedItem(teamLeader);
+					comboOperation.setSelectedItem(operation);
+				}
+
+				catch (SQLException e1) {
+				}
