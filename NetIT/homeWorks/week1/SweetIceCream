@@ -1,1 +1,63 @@
-Test
+import java.util.Scanner;
+
+public class SweetIceCream {
+	
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		int      numberOfIceCreamProducePerDay   = 100;
+		double   singlePriceIceCream             = 2.50;
+		String   nameOfIceCream                  = "EXTREME ICE CREAME";
+		String   season                          = "Winter";
+        boolean  isSeasonWinter                  = true;	
+        String   idLetter;
+        int      serialNumber                    = 0;
+		String[] typeOfIceCream                  = {"pink", "blue", "green", "white"};
+		String   fansName                        = "";
+		
+		//Ice cream production
+		System.out.println("Number of ice creame produced per day: " 
+		                  + numberOfIceCreamProducePerDay + " lv.");
+		System.out.println();
+		
+		//Ice cream price
+		System.out.println("Single price per pc: " + singlePriceIceCream + " pcs");
+		System.out.println();
+		
+		//Ice cream name
+		System.out.println("Ice creame name's: " + nameOfIceCream);
+		System.out.println();
+        
+		//Season for production
+        System.out.println("Please input season Winter or something else:");
+        season = input.nextLine();
+        if (season.equals("Winter")) {
+        	System.out.println(isSeasonWinter);
+        } else {
+        	System.out.println(false);
+        }	
+        System.out.println();
+        
+        //Ice cream serial number
+        System.out.println("Please input letter for the serial number:");
+        idLetter = input.nextLine();    
+        System.out.println("Please input five numbers for the serial number:");
+        serialNumber = Integer.parseInt(input.nextLine());  
+        
+        System.out.println("The serial number is: " + idLetter + serialNumber);
+        System.out.println();
+        
+        //Ice cream types
+		System.out.println("Types of ice creame: " 
+		                  + java.util.Arrays.toString(typeOfIceCream));
+		System.out.println();
+		
+		//Ice cream fan names
+		System.out.print("Please input fan name:");
+		fansName = input.nextLine();
+		System.out.println("Fan name is: " + fansName);
+			
+	}
+
+}
