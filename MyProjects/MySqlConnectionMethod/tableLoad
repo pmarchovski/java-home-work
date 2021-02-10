@@ -1,0 +1,12 @@
+public void table_load() {
+
+		try {
+			pst = conn.prepareStatement("select * from operators");
+			rs = pst.executeQuery();
+			table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+			scrollPane_1.setViewportView(table);
+			table.setModel(DbUtils.resultSetToTableModel(rs));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
