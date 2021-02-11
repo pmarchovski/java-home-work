@@ -1,0 +1,156 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class homeWorkThree {
+
+	public static void main(String[] args) {
+
+		takeSerialNumber();
+
+	}
+
+	static void takeSerialNumber() {
+
+		Scanner scanner = new Scanner(System.in);
+
+		// Enter serial number
+		int serialNumber;
+
+		print("Please enter the serial number of your card");
+		serialNumber = scanner.nextInt();
+
+		// Count number of digit for arrays
+		int countOfDigit = String.valueOf(serialNumber).length();
+
+		System.out.println(countOfDigit);
+
+		print("");
+
+		// Declare array
+		int[] reverseSerialNumberArray = new int[countOfDigit];
+
+		for (int i = 0; i < countOfDigit; i++) {
+
+			reverseSerialNumberArray[i] = serialNumber % 10;
+			serialNumber = serialNumber / 10;
+		}
+		int[] serialNumberArray = new int[countOfDigit];
+
+		for (int i = 0; i < countOfDigit; i++) {
+			serialNumberArray[countOfDigit - i - 1] = reverseSerialNumberArray[i];
+
+		}
+
+		print("Your serial number is: " + Arrays.toString(serialNumberArray));
+
+		// Compare number of digit and return result
+		compareNumberOfDigit(countOfDigit);
+
+		// 2. Even or odd number
+		int lastDigit = serialNumberArray[serialNumberArray.length - 1];
+
+		System.out.println(lastDigit);
+
+		if (lastDigit % 2 == 0) {
+			print("You are VIP client!");
+		} else if (lastDigit % 2 == 1) {
+			print("You are not special client");
+		}
+		
+		
+		// 3. Opportunity for additional eat
+		int digitBeforeLast = serialNumberArray[serialNumberArray.length - 2];
+		
+		if (digitBeforeLast > 3) {
+			print("You will be able to order additional eat :)");
+		} else {
+			print("You will not be able to order additionl eat :(");
+		}
+		
+		
+		// Is it SUPER VIP or not
+		boolean isVIP = lastDigit % 2==0;
+		boolean isCanTakeAddEat = digitBeforeLast > 3;
+		
+		if (isVIP == true && isCanTakeAddEat == true) {
+			print("You are SUPER VIP");
+		} else {
+			print("You are not SUPER VIP");
+		}
+		
+		print("");
+		// Orders
+		orders();
+		
+	}
+
+	static void print(String text) {
+
+		System.out.println(text);
+	}
+
+	static void compareNumberOfDigit(int countOfDigit) {
+		if (countOfDigit == 6) {
+			print("You are: NORMAL");
+		}
+		if (countOfDigit > 2 && countOfDigit < 6) {
+			print("You are: EARLY_ADOPTER");
+		}
+
+		if (countOfDigit > 6) {
+			print("You are: LAGGER");
+		}
+	}
+	
+	static void orders() {
+		
+		print("Menu");
+		print("203 " + "Steak with potatoes");
+		print("204 " + "Vegetables with chicken");
+		print("205 " + "breat");
+		print("000 " + "nothing");
+		
+		final double priceOrder203 = 10.90;
+		final double priceOrder204 = 12.60;
+		final double priceOrder205 = 2.60;
+		final double priceOrder000 = 0.00;
+		
+		Scanner scanner = new Scanner(System.in);
+		int quantity = 0;
+		
+		
+		print("Please order from the our menu");	
+		int order = scanner.nextInt();
+		
+		if (order == 000) {
+			quantity = 0;
+		} else {
+			print("Please enter quantity");
+		quantity = scanner.nextInt();
+		}
+		
+		
+		
+		
+		if (order == 203) {
+			double totalValueOrder203 = priceOrder203 * quantity;
+			print("You order is 203 " + "- " + "Steak with potatoes " + "Total price is " + totalValueOrder203);
+			
+		}
+		if (order == 204) {
+			double totalValueOrder204 = priceOrder204 * quantity;
+			print("You order is 204 " + "- " + "Vegetables with chicken " + "Total price is " + totalValueOrder204);
+		}
+		if (order == 205) {
+			double totalValueOrder205 = priceOrder205 * quantity;
+			print("You order is 205 " + "- " + "breat " + "Total price is " + totalValueOrder205);
+			
+		}
+		if (order == 000) {
+			print("You don have any articules. Your BILL is 1.00 lv.");
+		}
+		
+	}
+	
+
+}
