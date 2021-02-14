@@ -1,8 +1,6 @@
 
-
 public class Main {
 
-	
 	public static void main(String[] args) {
 		
 		ReverseNumber.reverseNumber();
@@ -15,6 +13,7 @@ public class Main {
 		FifthPoint.decimalNumber();
 		ViscousYear.viscousYear();
 		Triangle.triangle();
+		ReverseWithCicle.reverse();
 	}
 
 }
