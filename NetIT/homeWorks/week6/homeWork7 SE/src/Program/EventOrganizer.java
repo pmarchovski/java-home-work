@@ -145,13 +145,9 @@ public class EventOrganizer {
 	
 	public static void displayEventsUnderYears() {
 		
+		Console.showln("The events appropriate for people under 18 years old are:");	
 		for (int i = 0; i < eventCollection.size(); i++) {
-			if (eventCollection.get(i).getFlag() < years) {
-				eventCollection.get(i).displayEvent();
-			} 
-			if (eventCollection.get(i).getFlag() >= years) {
-				Console.showln("There is no such events");
-			} 
+			if (eventCollection.get(i).getFlag() < years) eventCollection.get(i).displayEvent();	
 		}
 		Console.showln("");	
 		Menu.letsContinue();
