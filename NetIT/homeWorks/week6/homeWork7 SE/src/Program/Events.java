@@ -11,6 +11,18 @@ public class Events {
 	private int        flag;
 	private int        id;
 	private LocalDate  date; 
+	private double     eventPrice;
+	
+	
+	public void setEventPrice() {
+		Console.showln("Please enter event price");		
+		this.eventPrice = Console.inputD();
+	}
+	
+	public double getEventPrice() {
+	
+			return this.eventPrice;
+	}
 	
 	public void setDate() {
 		this.date = LocalDate.now();
@@ -78,6 +90,7 @@ public class Events {
 		setDate();
 		setTitle();
 		setFlag(flag);
+		setEventPrice();
 	}
 	
 	public int getMaxNumberOfCustomer() {
@@ -94,11 +107,18 @@ public class Events {
 	public void displayEvent() {
 	
 		int years = 18;
+		boolean price = this.eventPrice > 0;
 		
 		Console.showln("");
 		Console.showln("The event date is: " + this.date);
 		Console.showln("The event id is: "   + this.id);
-		Console.showln("The event name is: " + this.title);
+		
+		
+		if (price) Console.showln("The event name is: " + "$ " + this.title);
+		else Console.showln("The event name is: " + " !" + this.title);
+		
+		if (price) Console.showln("The event price is: " + this.eventPrice + " BGN");
+		else Console.showln("This event is without price");
 		
 		if (this.flag < years) Console.showln("* The event is allowed for everybody");
 		else Console.showln("# The event is allowed only for people over 18 years old");
