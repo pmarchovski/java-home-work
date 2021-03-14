@@ -69,7 +69,7 @@ public class Menu {
 	    if (chooseNumberReportMenu == 1) CustomerOrganizer.createCustomer();
 	    if (chooseNumberReportMenu == 2) CustomerOrganizer.customerCollectionDisplay();
 	    if (chooseNumberReportMenu == 3) EventOrganizer.addCustomerIntoEvent();
-	    if (chooseNumberReportMenu == 4) EventOrganizer.displayEventWithBiggerNumberOfCustomer();
+	    if (chooseNumberReportMenu == 4) EventOrganizer.removeCustomerFromEvent();
 	    if (chooseNumberReportMenu == 5) menu();
 	}
 	
@@ -78,8 +78,8 @@ public class Menu {
 		
 		Console.showln("[1] - Display event by ID"     + "\n"
 	                 + "[2] - Display customer by ID"   + "\n"
-	                 + "[3] - Take events under appropriate "
-	                 +        "for 18 years only" + "\n"
+	                 + "[3] - Take events appropriate "
+	                 +        "for people under 18 years only" + "\n"
 	                 + "[4] - The event with max number of customers  \n");
 	    Console.showln("[5] - Back to MAIN MENU");
 	    
@@ -88,7 +88,7 @@ public class Menu {
 	    if (chooseNumberCustomerMenu == 1) EventOrganizer.takeEventById();
 	    if (chooseNumberCustomerMenu == 2) EventOrganizer.takeCustomerById();
 	    if (chooseNumberCustomerMenu == 3) EventOrganizer.displayEventsUnderYears();
-	    if (chooseNumberCustomerMenu == 4) EventOrganizer.removeCustomerFromEvent();
+	    if (chooseNumberCustomerMenu == 4) EventOrganizer.displayEventWithBiggerNumberOfCustomer();
 	    if (chooseNumberCustomerMenu == 5) menu();
 	    
 	}
