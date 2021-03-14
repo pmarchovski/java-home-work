@@ -11,9 +11,9 @@ public class Customer {
 	private String       gender;
 	private int          customerId;
 	private int          age;
-	private double       wallet;
 	private int          eventCount;
-	boolean              vip = true;
+	private double       wallet;
+	private boolean      vip = this.eventCount == 5;
 	
 	public void setEventCount() {
 		this.eventCount++;
@@ -98,8 +98,7 @@ public class Customer {
 	}
 		
 	public void displayCustomer() {
-		
-		vip = this.eventCount == 5;
+
 		Console.showln("");
 		System.out.println("Customer ID: "     + this.customerId);
 		System.out.println("Customer Name: "   + this.name);
