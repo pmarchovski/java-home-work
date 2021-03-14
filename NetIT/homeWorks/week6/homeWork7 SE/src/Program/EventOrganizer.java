@@ -15,7 +15,7 @@ public class EventOrganizer {
     private static int startNumberId    = 1000;
     private static int startNumberIndex = 1000;
     private static int years            = 18;
-    private static int id               = 0;
+    private static int id;
     
     public static int createEventId() {
     	

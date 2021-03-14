@@ -5,7 +5,6 @@ import Util.Menu;
 
 public class Customer {
 
-	public  double       priceRegistration = 5;
 	private final int    MAX_AGE = 80;
 	private final int    MIN_AGE = 4;
 	private String       name;
@@ -13,7 +12,19 @@ public class Customer {
 	private int          customerId;
 	private int          age;
 	private double       wallet;
+	private int          eventCount;
+	boolean              vip = true;
 	
+	public void setEventCount() {
+		this.eventCount++;
+		if (this.eventCount > 5) {
+			this.eventCount = 0;
+		}
+	}
+	
+	public int getEventCount() {
+		return this.eventCount;
+	}
 	
 	public void setWallet() {
 		Console.showln("Please enter wallet value for this customer");
@@ -21,7 +32,11 @@ public class Customer {
 	}
 
 	public void takeFromWallet() {
-		this.wallet = this.wallet - EventOrganizer.getEventPrice();
+		if (vip) {
+			this.wallet = this.wallet - 0;
+		} else {
+			this.wallet = this.wallet - EventOrganizer.getEventPrice();
+		}		
 	}
 	
 	public double getWallet() {
@@ -84,12 +99,14 @@ public class Customer {
 		
 	public void displayCustomer() {
 		
+		vip = this.eventCount == 5;
 		Console.showln("");
 		System.out.println("Customer ID: "     + this.customerId);
 		System.out.println("Customer Name: "   + this.name);
 		System.out.println("Customer Gender: " + this.gender);
 		System.out.println("Customer Age: "    + this.age);
-		System.out.println("Customer Wallet: " + this.wallet + " BGN");	
+		System.out.println("Customer Wallet: " + this.wallet + " BGN");		
+		if (vip) System.out.println("--- You are VIP customer---");
 		
 	}
 }

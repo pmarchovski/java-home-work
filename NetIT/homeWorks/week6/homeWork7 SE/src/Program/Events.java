@@ -83,6 +83,8 @@ public class Events {
 			Console.showln("The customer is added succesfuly \n");
 		}
 		
+		tempInfo.setEventCount();
+		
 		
 	}
 	
