@@ -13,7 +13,6 @@ public class Customer {
 	private int          age;
 	private int          eventCount;
 	private double       wallet;
-	private boolean      vip = this.eventCount == 5;
 	
 	public void setEventCount() {
 		this.eventCount++;
@@ -32,7 +31,8 @@ public class Customer {
 	}
 
 	public void takeFromWallet() {
-		if (vip) {
+		
+		if (this.eventCount == 5) {
 			this.wallet = this.wallet - 0;
 		} else {
 			this.wallet = this.wallet - EventOrganizer.getEventPrice();
@@ -99,12 +99,14 @@ public class Customer {
 		
 	public void displayCustomer() {
 
+		boolean vip = this.eventCount == 5;
 		Console.showln("");
-		System.out.println("Customer ID: "     + this.customerId);
-		System.out.println("Customer Name: "   + this.name);
-		System.out.println("Customer Gender: " + this.gender);
-		System.out.println("Customer Age: "    + this.age);
-		System.out.println("Customer Wallet: " + this.wallet + " BGN");		
+		System.out.println("Customer ID: "       + this.customerId);
+		System.out.println("Customer Name: "     + this.name);
+		System.out.println("Customer Gender: "   + this.gender);
+		System.out.println("Customer Age: "      + this.age);
+		System.out.println("Customer Wallet: "   + this.wallet + " BGN");
+		System.out.println("This customer is : " + this.eventCount);
 		if (vip) System.out.println("--- You are VIP customer---");
 		
 	}
