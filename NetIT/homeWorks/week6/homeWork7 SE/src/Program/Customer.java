@@ -12,11 +12,12 @@ public class Customer {
 	private int          customerId;
 	private int          age;
 	private int          eventCount;
+	private int          numberAttend = 5;
 	private double       wallet;
 	
 	public void setEventCount() {
 		this.eventCount++;
-		if (this.eventCount > 5) {
+		if (this.eventCount > numberAttend) {
 			this.eventCount = 0;
 		}
 	}
@@ -32,7 +33,7 @@ public class Customer {
 
 	public void takeFromWallet() {
 		
-		if (this.eventCount == 5) {
+		if (this.eventCount == numberAttend) {
 			this.wallet = this.wallet - 0;
 		} else {
 			this.wallet = this.wallet - EventOrganizer.getEventPrice();
@@ -99,7 +100,7 @@ public class Customer {
 		
 	public void displayCustomer() {
 
-		boolean vip = this.eventCount == 5;
+		boolean vip = this.eventCount == numberAttend;
 		Console.showln("");
 		System.out.println("Customer ID: "       + this.customerId);
 		System.out.println("Customer Name: "     + this.name);
