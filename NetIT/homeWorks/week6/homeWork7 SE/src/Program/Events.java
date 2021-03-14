@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Util.Console;
+import Util.Menu;
 
 public class Events {
 	
@@ -65,13 +66,24 @@ public class Events {
 				return;
 			}
 		}			
-		if (this.flag > tempInfo.getAge()) Console.showln("---This customer does not allowed "
-				                                        + "for this event---");
-		
+		if (this.flag > tempInfo.getAge()) {
+			Console.showln("---This customer does not allowed "
+		                    + "for this event---");
+		   Menu.letsContinue();
+		}
+		else if (tempInfo.getWallet() - tempInfo.priceRegistration < 0) {
+			
+			Console.showln("--- You don't have enough money in the wallet ---");
+			Menu.letsContinue();
+		}
+		        
 		else {	
 			this.customerEvent.add(tempInfo);
+			tempInfo.takeFromWallet();
 			Console.showln("The customer is added succesfuly \n");
 		}
+		
+		
 	}
 	
 	public void removeCustomerFromEvent() {

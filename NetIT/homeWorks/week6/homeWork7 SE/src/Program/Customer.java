@@ -5,12 +5,28 @@ import Util.Menu;
 
 public class Customer {
 
+	public  double       priceRegistration = 5;
 	private final int    MAX_AGE = 80;
 	private final int    MIN_AGE = 4;
 	private String       name;
 	private String       gender;
 	private int          customerId;
 	private int          age;
+	private double       wallet;
+	
+	
+	public void setWallet() {
+		Console.showln("Please enter wallet value for this customer");
+		this.wallet = Console.inputD();
+	}
+
+	public void takeFromWallet() {
+		this.wallet = this.wallet - priceRegistration;
+	}
+	
+	public double getWallet() {
+		return this.wallet;
+	}
 	
 	public void setId() {
 		this.customerId = CustomerOrganizer.createCustomerId();	
@@ -63,15 +79,17 @@ public class Customer {
 		setName();
 		setAge();
 		setGender();
+		setWallet();
 	}
 		
 	public void displayCustomer() {
 		
 		Console.showln("");
 		System.out.println("Customer ID: "     + this.customerId);
-		System.out.println("Customer name: "   + this.name);
-		System.out.println("Customer gender: " + this.gender);
-		System.out.println("Customer age: "    + this.age);	
+		System.out.println("Customer Name: "   + this.name);
+		System.out.println("Customer Gender: " + this.gender);
+		System.out.println("Customer Age: "    + this.age);
+		System.out.println("Customer Wallet: " + this.wallet + " BGN");	
 		
 	}
 }
