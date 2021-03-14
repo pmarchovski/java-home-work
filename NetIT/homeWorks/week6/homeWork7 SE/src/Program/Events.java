@@ -71,7 +71,7 @@ public class Events {
 		                    + "for this event---");
 		   Menu.letsContinue();
 		}
-		else if (tempInfo.getWallet() - tempInfo.priceRegistration < 0) {
+		else if (tempInfo.getWallet() - this.eventPrice < 0) {
 			
 			Console.showln("--- You don't have enough money in the wallet ---");
 			Menu.letsContinue();

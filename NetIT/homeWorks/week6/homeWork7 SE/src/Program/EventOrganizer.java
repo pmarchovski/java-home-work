@@ -15,6 +15,7 @@ public class EventOrganizer {
     private static int startNumberId    = 1000;
     private static int startNumberIndex = 1000;
     private static int years            = 18;
+    private static int id               = 0;
     
     public static int createEventId() {
     	
@@ -48,7 +49,7 @@ public class EventOrganizer {
 	public static void editEvent() {
 		
 		Console.showln("Please enter event id for edit");
-		int id = Console.input();
+		id = Console.input();
 		
 		for (int i = 0; i < eventCollection.size(); i++) {		
 		      if (i + startNumberIndex == id - 1) {  
@@ -63,7 +64,7 @@ public class EventOrganizer {
 	public static void removeEvent() {
 		
 		Console.showln("Please enter event ID for edit");
-		int id = Console.input();
+		id = Console.input();
 		
 		for (int i = 0; i < eventCollection.size(); i++) {		
 		      if (i + startNumberIndex == id - 1) {  
@@ -108,7 +109,7 @@ public class EventOrganizer {
 	public static void addCustomerIntoEvent() {
 		
 		Console.showln("Please enter event ID for adding customer");
-		int id = Console.input();
+		id = Console.input();
 		
 		for (int i = 0; i < eventCollection.size(); i++) {		
 		      if (i + startNumberIndex == id - 1) { 		    	  
@@ -116,13 +117,23 @@ public class EventOrganizer {
 		      }
 		}		
 		Console.showln("");	
-		Menu.letsContinue();
+		Menu.letsContinue();		
+	}
+	
+	public static double getEventPrice() {
+		double eventPrice = 0;
+		for (int i = 0; i < eventCollection.size(); i++) {		
+		      if (i + startNumberIndex == id - 1) { 		    	  
+		eventPrice = eventCollection.get(i).getEventPrice();
+		      }
+		}		
+         return eventPrice;
 	}
 	
 	public static void removeCustomerFromEvent() {
 		
 		Console.showln("Please enter event ID for remove customer");
-		int id = Console.input();
+		id = Console.input();
 		
 		for (int i = 0; i < eventCollection.size(); i++) {
 			if (i + 1000 == id - 1) {

@@ -21,7 +21,7 @@ public class Customer {
 	}
 
 	public void takeFromWallet() {
-		this.wallet = this.wallet - priceRegistration;
+		this.wallet = this.wallet - EventOrganizer.getEventPrice();
 	}
 	
 	public double getWallet() {
