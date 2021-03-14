@@ -158,26 +158,25 @@ public class EventOrganizer {
 	}
 	
 	public static void displayEventWithBiggerNumberOfCustomer() {
-		int max = 0;
-		int min;
+		int next = 0;
+		int max;
 		Events maxCustomerEvent = new Events();
-		
 		if (eventCollection.size() == 0) Console.showln("There are not events");
 		
+		max = eventCollection.get(0).getMaxNumberOfCustomer();
 		for (int i = 0; i < eventCollection.size() - 1; i++) {
-		min = eventCollection.get(i).getMaxNumberOfCustomer();	
-		max = eventCollection.get(i + 1).getMaxNumberOfCustomer();	
-		maxCustomerEvent = eventCollection.get(i + 1);	
+
+		next = eventCollection.get(i).getMaxNumberOfCustomer();	
 		
-		if (min > max) {
-			max = eventCollection.get(i).getMaxNumberOfCustomer();
+		if (max < next) {
+			
+			max = next;
 			maxCustomerEvent = eventCollection.get(i);
-			min = eventCollection.get(i + 1).getMaxNumberOfCustomer();
 		}	
 		}
-		Console.showln("The customer with bigger customer number is:");
+		Console.showln("The event with bigger customer number is:");
 		maxCustomerEvent.displayEvent();
-		Console.showln("The number of customers are: " + max);
+		Console.showln("The number of customers are: " + next);
 		Menu.letsContinue();
 	}
 }
