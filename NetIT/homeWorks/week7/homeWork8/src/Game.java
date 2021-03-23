@@ -10,6 +10,7 @@ public class Game {
 		Invest.invest();
 		Party.party();
 		SetUpPlayers.nextPlayer();
+		SetUpPlayers.checkMoney();
 		game();
 	}
 }

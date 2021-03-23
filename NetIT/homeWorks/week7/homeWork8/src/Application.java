@@ -5,6 +5,7 @@ public class Application {
 
 		SetUpPlayers.createPlayer();
 		Board.createBoard();
+		Invest.createInvestCollection();
 		Game.game();
 	}
 }

@@ -87,6 +87,16 @@ public class Players {
 		this.money = this.money + stealBonus;
 		return this.money;
 	}
+	
+	public int investCharge(int investCharge) {
+		this.money = this.money - investCharge;
+		return this.money;
+	}
+	
+	public int investProfit(int investProfit) {
+		this.money = this.money + investProfit;
+		return this.money;
+	}
 
 	public boolean isProtected() {
 		return isProtected;
@@ -99,6 +109,11 @@ public class Players {
 	public void displayPosition() {
 		System.out.println("Позицията на играч " + this.name + " е: " + this.position);
 		System.out.println("Вашите пари са: " + this.money);
+	}
+	
+	public void displayRsults() {
+		System.out.println("Име на играча: " + this.name);
+		System.out.println("Останали пари: " + this.money);
 	}
 
 	public boolean isStealProtected() {

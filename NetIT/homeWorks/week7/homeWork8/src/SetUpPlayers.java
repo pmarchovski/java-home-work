@@ -70,4 +70,15 @@ public class SetUpPlayers {
     	int firstPlayer = random.nextInt(1);
     	return firstPlayer;
     }
+    
+    public static void result() {
+    	System.out.println("**** GAME OVER ****");
+    		playersCollection.get(0).displayRsults();
+    		playersCollection.get(1).displayRsults();
+    	}
+    public static void checkMoney() {
+    	if (playerIndex.getMoney() < 0) {
+    		result();
+    	}
+    }
 }

@@ -8,8 +8,8 @@ public class Board {
 	public static Fields chance          = new Fields(" c");
 	public static Fields steal           = new Fields(" s");
 	public static Fields party           = new Fields(" p");
-	public static int row;
-	public static int col;
+	private static int row;
+	private static int col;
 
 	public static void createBoard() {
 

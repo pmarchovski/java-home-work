@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Trap {
 
 	
-	public static Random random = new Random();
+	private static Random random = new Random();
 	private static Scanner scan = new Scanner(System.in);
 	
 	public static void trap() {
